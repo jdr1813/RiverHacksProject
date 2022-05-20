@@ -1,14 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<link href="codle.css" rel="stylesheet" />
-<title>Codle</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="codle.css" rel="stylesheet" />
+    <title>Codle</title>
+    <script src="codle.js"></script>
+  </head>
 
-<body>
-	<img src="Codle.png" alt="Codle Logo" class="logo"/>
-	<img src="#" alt="Question" class="question"/>
-	<p class="question">Question</p>
-</body>
+  <body>
+    <img src="Codle.png" alt="Codle Logo" class="logo" />
+    <img src="fizz.png" alt="Question" class="question" id="q" />
+    <p class="question">What will this function return?</p>
+    <div id="answers-container">
+      <input type="text" required placeholder="Answer here" id="answer" />
+    </div>
+    <button onclick="addNewAnswerField(), imgHandler()">TEST</button> 
+  </body>
 </html>
