@@ -3,21 +3,18 @@
 
 body {
 	background: #2E294E;
-	color: #DAFF7D;
+	color: #98CE00;
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
 }
 
-.logo, .question {
+.logo, .question, .answer {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	width: 50%;
 }
 
-.logo {
-	padding-bottom: 3%;
-}
-
 .question {
-	
+	font-weight: bolder;
+	font-size: 1.2em;
 }
