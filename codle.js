@@ -7,15 +7,18 @@ const imgHandler = () => {
 };
 
 const addNewAnswerField = () => {
-  if (checkGameCount() == true) {
+  let oldAnswer = document.getElementById(`answer${questionCount}`);
+  if (checkGameCount() && oldAnswer.value != "") {
     let newAnswer = document.createElement("input");
+    questionCount++;
     newAnswer.type = "text";
-    newAnswer.id = "answer";
+    newAnswer.id = `answer${questionCount}`;
+    newAnswer.required = true;
     newAnswer.placeholder = "Answer here";
     let parent = document.getElementById("answers-container");
     parent.appendChild(newAnswer);
-    questionCount++;
   }
+  oldAnswer.setAttribute("readonly", true);
 };
 
 const checkGameCount = () => {
@@ -23,4 +26,29 @@ const checkGameCount = () => {
     return true;
   }
   return false;
+};
+
+const validateAnswer = () => {
+  let answer = document.getElementById(`answer${questionCount}`);
+  if (answer.value != "") {
+    correctAnswers = ["fizzbuzz", "20", "9"];
+    answerText = answer.value.toLowerCase();
+    if (answerText == correctAnswers[questionCount]) {
+      answer.style.color = "green";
+    } else {
+      answer.style.color = "red";
+    }
+  }
+};
+
+// const makeReadOnly = () => {
+//   if (questionCount == 1) {
+//     document.getElementById("answer" + questionCount).makeReadOnly;
+//   }
+// };
+
+const checkForEmpty = () => {
+  if (document.getElementById(`answer${questionCount}`).value == "") {
+    alert("Enter a value");
+  }
 };

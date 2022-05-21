@@ -12,8 +12,23 @@
     <img src="fizz.png" alt="Question" class="question" id="q" />
     <p class="question">What will this function return?</p>
     <div id="answers-container">
-      <input type="text" required placeholder="Answer here" id="answer" />
+      <input
+        type="text"
+        placeholder="Answer here"
+        id="answer0"
+        min="1"
+        required
+      />
     </div>
-    <button onclick="addNewAnswerField(), imgHandler()">TEST</button> 
+    <button
+      onclick="checkForEmpty(), validateAnswer(),addNewAnswerField(),imgHandler()"
+    >
+      TEST
+    </button>
+    <!-- <input
+      type="submit"
+      hidden
+      onsubmit="addNewAnswerField(), imgHandler(), validateAnswer()"
+    /> -->
   </body>
 </html>
