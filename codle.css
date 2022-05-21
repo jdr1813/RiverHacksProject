@@ -2,12 +2,32 @@
 /* CSS Document */
 
 body {
+	background: #2E294E;
+	color: #98CE00;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+
+.logo, .question, .answer {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+.question {
+	font-weight: bolder;
+	font-size: 1.2em;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
   background: #2e294e;
   color: #daff7d;
   font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
 }
 
-.logo,
+/* .logo,
 .question {
   display: block;
   margin-left: auto;
@@ -20,7 +40,7 @@ body {
 }
 
 .question {
-}
+} */
 
 .modal-container {
   background-color: rgba(0, 0, 0, 0.3);
