@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="codle.css" rel="stylesheet" />
+    <title>Codle</title>
+    <script src="codle.js"></script>
+  </head>
+
+  <body>
+    <img src="Codle.png" alt="Codle Logo" class="logo" />
+    <img src="fizz.png" alt="Question" class="question" id="q" />
+    <p class="question">What will this function return?</p>
+    <div id="answers-container" class="answer">
+      <form id="myForm0">
+        <input type="text" placeholder="Answer here" id="answer0" required />
+      </form>
+    </div>
+    <div class="modal-container" id="modal_container">
+      <div class="modal">
+        <h1 id="score"></h1>
+        <p>
+          Share your score on Twitter!
+          <a
+            id="twitter-share"
+            class="twitter-share-button"
+            href="#"
+            onclick="updateTwitterLink()"
+            target="_blank"
+          >
+            <img
+              src="2021 Twitter logo - blue.png"
+              style="width: 30px; height: 30px"
+            />
+          </a>
+        </p>
+        <button id="close">Close me</button>
+      </div>
+    </div>
+    <footer id="footer">Made by Callie, Deena and Justin</footer>
+  </body>
+</html>
