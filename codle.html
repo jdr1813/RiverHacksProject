@@ -16,5 +16,27 @@
         <input type="text" placeholder="Answer here" id="answer0" required />
       </form>
     </div>
+    <div class="modal-container" id="modal_container">
+      <div class="modal">
+        <h1 id="score"></h1>
+        <p>
+          Share your score on Twitter!
+          <a
+            id="twitter-share"
+            class="twitter-share-button"
+            href="#"
+            onclick="updateTwitterLink()"
+            target="_blank"
+          >
+            <img
+              src="2021 Twitter logo - blue.png"
+              style="width: 30px; height: 30px"
+            />
+          </a>
+        </p>
+        <button id="close">Close me</button>
+      </div>
+    </div>
+    <footer id="footer">Made by Callie, Deena and Justin</footer>
   </body>
 </html>
