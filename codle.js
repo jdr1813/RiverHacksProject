@@ -1,4 +1,7 @@
 let questionCount = 0;
+let wrongAnswerCount = 0;
+let rightAnswerCount = 0;
+let tweetResults = [];
 
 const imgHandler = () => {
   validIMGs = ["fizz.png", "list.png", "tricky.png"];
@@ -27,6 +30,11 @@ const addNewAnswerField = () => {
   oldAnswer.setAttribute("readonly", true);
 };
 
+const makeFinalReadOnly = () => {
+  let finalAnswer = document.getElementById(`answer${2}`);
+  finalAnswer.setAttribute("readonly", true);
+};
+
 const checkGameCount = () => {
   if (questionCount < 2) {
     return true;
@@ -41,8 +49,12 @@ const validateAnswer = () => {
     answerText = answer.value.toLowerCase();
     if (answerText == correctAnswers[questionCount]) {
       answer.style.color = "green";
+      rightAnswerCount++;
+      tweetResults.push("🟩");
     } else {
       answer.style.color = "red";
+      wrongAnswerCount++;
+      tweetResults.push("🟥");
     }
   }
 };
@@ -56,9 +68,39 @@ const checkForEmpty = () => {
 };
 
 document.addEventListener("submit", (e) => {
-  e.preventDefault();
-  checkForEmpty();
-  validateAnswer();
-  addNewAnswerField();
-  imgHandler();
+  if (!gameOver()) {
+    e.preventDefault();
+    checkForEmpty();
+    validateAnswer();
+    addNewAnswerField();
+    imgHandler();
+  } else {
+    validateAnswer();
+    makeFinalReadOnly();
+    const modal = document.getElementById("modal_container");
+    const close = document.getElementById("close");
+    const score = document.getElementById("score");
+    score.innerHTML = `You got ${rightAnswerCount} / ${
+      questionCount + 1
+    } answers right`;
+    modal.classList.add("show");
+    close.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
+  }
 });
+
+function gameOver() {
+  return questionCount == 2;
+}
+
+function updateTwitterLink() {
+  let today = new Date().toLocaleDateString("en-US");
+  document.getElementById(
+    "twitter-share"
+  ).href = `https://twitter.com/intent/tweet?text=${today}%0A${rightAnswerCount} / ${
+    questionCount + 1
+  } on today's Codle%0A${tweetResults[0]}%0A${tweetResults[1]}%0A${
+    tweetResults[2]
+  }`;
+}
